@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanrio Fan Signup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="signup-form">
+    <img src="image/hello.png" alt="3D Decorative Image" class="form-overlay-image">
+    <img src="image/pinakacute.png" alt="3D Decorative Image 2" class="form-overlay-image-secondary">
+    
+    <h2>Sanrio Fan Signup</h2>
+
+    <form id="signupForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="middleName">Middle Name</label>
+        <input type="text" id="middleName" name="middleName" required>
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" id="surname" name="surname" required>
+      </div>
+      <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" required>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" name="contact" placeholder="e.g., 09171234567" required>
+      </div>
+      <div class="form-group">
+        <label for="sanrioCharacter">Favorite Sanrio Character</label>
+        <select id="sanrioCharacter" name="sanrioCharacter" required>
+          <option value="" disabled selected>Select your favorite character</option>
+          <option value="Hello Kitty">Hello Kitty</option>
+          <option value="My Melody">My Melody</option>
+          <option value="Cinnamoroll">Cinnamoroll</option>
+          <option value="Kuromi">Kuromi</option>
+          <option value="Pompompurin">Pompompurin</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById('firstName').value;
+      const middleName = document.getElementById('middleName').value;
+      const surname = document.getElementById('surname').value;
+      const birthday = document.getElementById('birthday').value;
+      const contact = document.getElementById('contact').value;
+      const sanrioCharacter = document.getElementById('sanrioCharacter').value;
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <p><strong>First Name:</strong> ${firstName}</p>
+        <p><strong>Middle Name:</strong> ${middleName}</p>
+        <p><strong>Surname:</strong> ${surname}</p>
+        <p><strong>Birthday:</strong> ${birthday}</p>
+        <p><strong>Contact:</strong> ${contact}</p>
+        <p><strong>Favorite Sanrio Character:</strong> ${sanrioCharacter}</p>
+      `;
+
+      document.getElementById('signupForm').reset();
+    }
+  </script>
+</body>
+</html>
